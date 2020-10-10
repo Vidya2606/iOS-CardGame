@@ -77,12 +77,12 @@ class ViewController: UIViewController {
     @IBAction func playAction(_ sender: UIButton) {
         selectCard()
         if ( Player1Card1.image == UIImage(named: imageNames[39]) || Player1Card2.image == UIImage(named: imageNames[39]) || Player1Card3.image == UIImage(named: imageNames[39])) {
-            lblWinner.text = "Winner is Player-1"
-            displayAlert()
+            lblWinner.text = "Winner is Player 1"
+            displayAlert("Player 1")
         }
         else if ( Player2Card1.image == UIImage(named: imageNames[39]) || Player2Card2.image == UIImage(named: imageNames[39]) || Player2Card3.image == UIImage(named: imageNames[39])) {
-            lblWinner.text = "Winner is Player-2"
-            displayAlert()
+            lblWinner.text = "Winner is Player 2"
+            displayAlert("Player 2")
         }
         else {
             lblWinner.text = "Play again"
@@ -93,9 +93,9 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    func displayAlert() {
+    func displayAlert(_ winner: String) {
         // Declare Alert message
-        let dialogMessage = UIAlertController(title: "Play again?", message: " ", preferredStyle: .alert)
+        let dialogMessage = UIAlertController(title: "\(winner) won", message: "Do you want to play again?", preferredStyle: .alert)
         // Create Yes button with action handler
         let yes = UIAlertAction(title: "Yes", style: .default, handler: { (ACTION) -> Void in
             self.initialView()
